@@ -1,11 +1,19 @@
 ## reboot node
-\#mark node as unscheduleable<br>
-kubectl cordon \<node\> <br>
-\#remove all the running pods<br>
-kubectl drain \<node\> --ignore-daemonsets<br>
-\#do your job here... <br>
+```shell
+# mark node as unscheduleable
+kubectl cordon <node>
+# remove all the running pods
+kubectl drain <node> --ignore-daemonsets
+# do your job here...
 
-\#mark node as scheduleable <br>
-kubectl uncordon \<node\> <br>
-\#get node info <br>
-kubectl get node \<node\> <br>
+# mark node as scheduleable
+kubectl uncordon <node>
+# get node info
+kubectl get node <node>
+```
+
+
+## flannel oom
+```shell
+kubectl patch ds -n=kube-system kube-flannel-ds-amd64 -p '{"spec": {"template":{"spec":{"containers": [{"name":"kube-flannel", "resources": {"limits": {"cpu": "250m","memory": "550Mi"},"requests": {"cpu": "100m","memory": "100Mi"}}}]}}}}'
+```
