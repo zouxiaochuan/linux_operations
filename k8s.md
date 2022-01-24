@@ -3,7 +3,7 @@
 # mark node as unscheduleable
 kubectl cordon <node>
 # remove all the running pods
-kubectl drain <node> --ignore-daemonsets
+kubectl drain <node> --ignore-daemonsets --delete-emptydir-data
 # do your job here...
 
 # mark node as scheduleable
