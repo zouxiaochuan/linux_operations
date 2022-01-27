@@ -1,8 +1,25 @@
-## upgrade kernel
-uname -r # display current version <br>
-sudo apt-get update <br>
-sudo apt-get dist-upgrade <br>
+upgrade kernel
+```shell
+uname -r # display current version
+sudo apt-get update
+sudo apt-get dist-upgrade
+```
 
-## create sudo user
-sudo adduser yourname <br>
+create sudo user
+```shell
+sudo adduser yourname
 sudo usermod -aG sudo yourname
+```
+
+search log
+```shell
+sudo journalctl --since "1 hour ago"
+/var/log/syslog
+cat /var/log/auth.log | grep sudo
+```
+
+stop ubuntu auto started service
+```shell
+sudo systemctl mask motd-news motd-news.timer snapd ModemManager fwupd-refresh.timer fwupd-refresh fwupd apt-daily-upgrade.timer apt-daily.timer snapd.snap-repair.timer snapd.snap-repair apt-daily apt-daily-upgrade
+```
+
