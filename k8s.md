@@ -17,3 +17,9 @@ kubectl get node <node>
 ```shell
 kubectl patch ds -n=kube-system kube-flannel-ds -p '{"spec": {"template":{"spec":{"containers": [{"name":"kube-flannel", "resources": {"limits": {"cpu": "250m","memory": "550Mi"},"requests": {"cpu": "100m","memory": "100Mi"}}}]}}}}'
 ```
+
+## mount ceph
+```shell
+# mount default file system
+sudo mount -t ceph 127.0.0.1,localhost:/ /mnt/ceph/ -o name=admin,secret=admin
+```
