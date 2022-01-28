@@ -15,14 +15,20 @@ if __name__ == '__main__':
     pvcs: client.V1PersistentVolumeClaimList
     for pvc in pvcs.items:
         name = pvc.metadata.name
-        volumn_name = pvc.spec.volum_name
+        volume_name = pvc.spec.volume_name
 
-        pv = v1.read_namespaced_persistent_volume_claim(
-            name=volumn_name, namespace=TARGET_NS)
+        # print(volume_name)
+        pv = v1.read_persistent_volume(
+            name=volume_name)
 
-        subvolume = pv.csi.volume_attributes['subvolumeName']
+        subvolume = pv.spec.csi.volume_attributes['subvolumeName']
         subvolume_path = os.path.join(ceph_path, subvolume)
         subfolders = os.listdir(subvolume_path)
+
+        subfolders = [os.path.join(subvolume_path, sf) for sf in subfolders]
+        subfolders = [sf for sf in subfolders if os.path.isdir(sf)]
+        
+        # print(subvolume_path)
         if len(subfolders) != 1:
             raise RuntimeError('folders under subvolume is not equal to 1')
             pass
