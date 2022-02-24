@@ -1,3 +1,8 @@
+## print join command
+```shell
+kubeadm token create --print-join-command
+```
+
 ## reboot node
 ```shell
 # mark node as unscheduleable
