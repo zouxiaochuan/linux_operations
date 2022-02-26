@@ -20,6 +20,6 @@ cat /var/log/auth.log | grep sudo
 
 stop ubuntu auto started service
 ```shell
-sudo systemctl mask motd-news motd-news.timer snapd ModemManager fwupd-refresh.timer fwupd-refresh fwupd apt-daily-upgrade.timer apt-daily.timer snapd.snap-repair.timer snapd.snap-repair apt-daily apt-daily-upgrade uplugplay
+sudo systemctl mask motd-news motd-news.timer snapd ModemManager fwupd-refresh.timer fwupd-refresh fwupd apt-daily-upgrade.timer apt-daily.timer snapd.snap-repair.timer snapd.snap-repair apt-daily apt-daily-upgrade uplugplay rshim
 ```
 
