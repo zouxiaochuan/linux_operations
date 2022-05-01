@@ -29,3 +29,8 @@ gpu_ver=$(cut -d'-' -f2 <<< `ls /usr/src | grep nvidia`)
 sudo apt-get install dkms
 sudo dkms install -m nvidia -v $gpu_ver
 ```
+
+repair apt error of NO_PUBKEY: XXX
+```shell
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys XXX
+```
