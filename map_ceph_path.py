@@ -21,6 +21,10 @@ if __name__ == '__main__':
         pv = v1.read_persistent_volume(
             name=volume_name)
 
+        if 'subvolumeName' not in pv.spec.csi.volume_attributes:
+            continue
+            pass
+        
         subvolume = pv.spec.csi.volume_attributes['subvolumeName']
         subvolume_path = os.path.join(ceph_path, subvolume)
         subfolders = os.listdir(subvolume_path)
@@ -35,6 +39,9 @@ if __name__ == '__main__':
 
         fullfolder = os.path.join(subvolume_path, subfolders[0])
         dst_folder = os.path.join(local_path, name)
+        if os.path.exists(dst_folder):
+            continue
+        
         cmd = f'ln -s {fullfolder} {dst_folder}'
         print(cmd)
         retcd = os.system(cmd)
