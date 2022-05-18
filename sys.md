@@ -20,6 +20,17 @@ cat /var/log/auth.log | grep sudo
 
 stop ubuntu auto started service
 ```shell
-sudo systemctl mask motd-news motd-news.timer snapd ModemManager fwupd-refresh.timer fwupd-refresh fwupd apt-daily-upgrade.timer apt-daily.timer snapd.snap-repair.timer snapd.snap-repair apt-daily apt-daily-upgrade uplugplay
+sudo systemctl mask motd-news motd-news.timer snapd ModemManager fwupd-refresh.timer fwupd-refresh fwupd apt-daily-upgrade.timer apt-daily.timer snapd.snap-repair.timer snapd.snap-repair apt-daily apt-daily-upgrade uplugplay rshim
 ```
 
+repair gpu driver after reboot
+```shell
+gpu_ver=$(cut -d'-' -f2 <<< `ls /usr/src | grep nvidia`)
+sudo apt-get install dkms
+sudo dkms install -m nvidia -v $gpu_ver
+```
+
+repair apt error of NO_PUBKEY: XXX
+```shell
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys XXX
+```
