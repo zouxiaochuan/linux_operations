@@ -9,4 +9,6 @@ process leak when using ray:
 make dataloader with worker number 0
 
 termal state:
+```shell
 sudo powermetrics --samplers thermal
+```
