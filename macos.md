@@ -7,3 +7,6 @@ matplotlib.pyplot.switch_backend('Agg')
 
 process leak when using ray:
 make dataloader with worker number 0
+
+termal state:
+sudo powermetrics --samplers thermal
