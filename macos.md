@@ -12,3 +12,8 @@ termal state:
 ```shell
 sudo powermetrics --samplers thermal
 ```
+
+bypass xprotect 
+```shell
+codesign --force --deep --sign - <your executable or app>
+```
