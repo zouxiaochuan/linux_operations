@@ -28,3 +28,9 @@ kubectl patch ds -n=kube-system kube-flannel-ds -p '{"spec": {"template":{"spec"
 # mount default file system
 sudo mount -t ceph 127.0.0.1,localhost:/ /mnt/ceph/ -o name=admin,secret=admin
 ```
+
+## renew certs
+```shell
+sudo kubeadm certs renew all
+# then reboot master
+```
