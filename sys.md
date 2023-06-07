@@ -34,3 +34,8 @@ repair apt error of NO_PUBKEY: XXX
 ```shell
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys XXX
 ```
+
+remove all mapper devices
+```shell
+sudo dmsetup remove_all
+```
