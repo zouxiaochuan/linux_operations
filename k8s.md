@@ -34,3 +34,8 @@ sudo mount -t ceph 127.0.0.1,localhost:/ /mnt/ceph/ -o name=admin,secret=admin
 sudo kubeadm certs renew all
 # then reboot master
 ```
+
+## problem of "no route to" pod
+```
+# just restart kube-proxy on the machine that pod resides
+```
