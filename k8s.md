@@ -36,6 +36,16 @@ sudo kubeadm certs renew all
 ```
 
 ## problem of "no route to" pod
-```
+```shell
 # just restart kube-proxy on the machine that pod resides
+```
+
+## ceph problem: "given Volume ID already exists"
+```shell
+# restart provisioner
+kubectl rollout restart deployment csi-cephfsplugin-provisioner
+kubectl rollout restart deployment csi-rbdplugin-provisioner
+
+# restart deamensets
+kubectl rollout restart ds -n rook-ceph
 ```
