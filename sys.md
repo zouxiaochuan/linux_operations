@@ -42,6 +42,7 @@ sudo dmsetup remove_all
 
 use nmcli to change ip address
 ```shell
+nmcli con modify <interface> ipv4.method manual
 nmcli con modify <interface> ipv4.address 192.168.1.100/24
 nmcli con down <interface>
 nmcli con up <interface>
