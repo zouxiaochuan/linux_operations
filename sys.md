@@ -47,3 +47,11 @@ nmcli con modify <interface> ipv4.address 192.168.1.100/24
 nmcli con down <interface>
 nmcli con up <interface>
 ```
+
+download apt packages
+```shell
+PACKAGES="wget unzip"
+apt-get download $(apt-cache depends --recurse --no-recommends --no-suggests \
+  --no-conflicts --no-breaks --no-replaces --no-enhances \
+  --no-pre-depends ${PACKAGES} | grep "^\w")
+```
