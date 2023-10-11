@@ -50,8 +50,5 @@ nmcli con up <interface>
 
 download apt packages
 ```shell
-PACKAGES="wget unzip"
-apt-get download $(apt-cache depends --recurse --no-recommends --no-suggests \
-  --no-conflicts --no-breaks --no-replaces --no-enhances \
-  --no-pre-depends ${PACKAGES} | grep "^\w")
+apt reinstall --download-only -o Dir::Cache::archives="/root/packages/deb/" <your packages>
 ```
