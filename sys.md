@@ -52,3 +52,8 @@ download apt packages
 ```shell
 apt reinstall --download-only -o Dir::Cache::archives="/root/packages/deb/" <your packages>
 ```
+
+network speed
+```shell
+cat /sys/class/net/<your interface>/speed
+```
