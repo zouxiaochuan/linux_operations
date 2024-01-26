@@ -49,3 +49,11 @@ kubectl rollout restart deployment csi-rbdplugin-provisioner
 # restart deamensets
 kubectl rollout restart ds -n rook-ceph
 ```
+## many "Failed to rotate log for container" in kubelet log
+make docker log setting the same as kubelet setting
+
+
+docker log setting: /etc/docker/daemon.json, log-opts.max-size: 128m
+
+
+kubelet setting: /var/lib/kubelet/config.yaml, "containerLogMaxSize: 128Mi"
