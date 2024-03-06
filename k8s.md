@@ -57,3 +57,6 @@ docker log setting: /etc/docker/daemon.json, log-opts.max-size: 128m
 
 
 kubelet setting: /var/lib/kubelet/config.yaml, "containerLogMaxSize: 128Mi"
+
+## pod hangs in pulling image
+set serializeImagePulls to false in /var/lib/kubelet/config.yaml
